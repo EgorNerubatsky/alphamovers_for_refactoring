@@ -1,0 +1,34 @@
+/.phpunit.cache
+/node_modules
+# /public/build
+/public/hot
+/public/uploads
+# /public/img/navico
+/public/storage
+/storage/*.key
+/vendor/*
+!vendor/autoload.php
+/tmp
+# /tmp/*
+# !/tmp/db/
+# /tmp/db/*
+# !/tmp/db/alphamoversDB/
+# !/tmp/db/mysql/
+# !/tmp/db/performance_schema/
+# !/tmp/db/sys/
+# !/tmp/db/private_key.pem
+# !/tmp/db/public_key.pem
+# !/tmp/db/server-cert.pem
+# !/tmp/db/server-key.pem
+
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode

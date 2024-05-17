@@ -1,0 +1,13 @@
+{
+    "web": {
+        "client_id": "329517443075-9l25qr3l87b5k29bi1k6kdhrnv2jim59.apps.googleusercontent.com",
+        "project_id": "alphomoversproject",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_secret": "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",
+        "redirect_uris": [
+            "http://localhost:8886/callback"
+        ]
+    }
+}

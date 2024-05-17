@@ -1,0 +1,2153 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My Doc API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "1_Get_Token"
+                ],
+                "summary": "Создание Токена",
+                "operationId": "4ed2d4ad482dbe329dc4b3dd1e97ba7c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "email": {
+                                                "type": "string",
+                                                "example": "executive@local.com"
+                                            },
+                                            "password": {
+                                                "type": "integer",
+                                                "example": 12345678
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "access_token": {
+                                                    "type": "string",
+                                                    "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0Ojg4ODYvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MTQxNDE4MjcsImV4cCI6MTcxNDE0NTQyNywibmJmIjoxNzE0MTQxODI3LCJqdGkiOiJVSEUzVUFiUGx0c2RXbVF1Iiwic3ViIjoiNiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.KUNH_5IrYpzzBVdo23Qsv7jo_-y7yd59N4v3VW_5psU"
+                                                },
+                                                "token_type": {
+                                                    "type": "string",
+                                                    "example": "bearer"
+                                                },
+                                                "expires_in": {
+                                                    "type": "integer",
+                                                    "example": 3600
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/clientBases": {
+            "get": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Список",
+                "operationId": "ee132213eee1a19ba460da3bf79c24d9",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "company": {
+                                                        "type": "string",
+                                                        "example": "АТ 'DFF'"
+                                                    },
+                                                    "type": {
+                                                        "type": "string",
+                                                        "example": "Фізична особа"
+                                                    },
+                                                    "debt_ceiling": {
+                                                        "type": "string",
+                                                        "example": "4567.78"
+                                                    },
+                                                    "identification_number": {
+                                                        "type": "string",
+                                                        "example": "UA793991114209"
+                                                    },
+                                                    "code_of_the_reason_for_registration": {
+                                                        "type": "string",
+                                                        "example": "UA4977230"
+                                                    },
+                                                    "main_state_registration_number": {
+                                                        "type": "string",
+                                                        "example": "UA468312256126"
+                                                    },
+                                                    "director_name": {
+                                                        "type": "string",
+                                                        "example": "Brielle Schuster"
+                                                    },
+                                                    "contact_person_position": {
+                                                        "type": "string",
+                                                        "example": "Голова правлiння"
+                                                    },
+                                                    "acting_on_the_basis_of": {
+                                                        "type": "string",
+                                                        "example": "Договiр № 86028"
+                                                    },
+                                                    "registered_address": {
+                                                        "type": "string",
+                                                        "example": "Харкiв, вул.4"
+                                                    },
+                                                    "zip_code": {
+                                                        "type": "integer",
+                                                        "example": 61171
+                                                    },
+                                                    "postal_address": {
+                                                        "type": "string",
+                                                        "example": "4367 Харкiв"
+                                                    },
+                                                    "payment_account": {
+                                                        "type": "string",
+                                                        "example": "UA827498498555"
+                                                    },
+                                                    "bank_name": {
+                                                        "type": "string",
+                                                        "example": "АТ Спец Банк"
+                                                    },
+                                                    "bank_identification_code": {
+                                                        "type": "string",
+                                                        "example": "UA308371"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Создание",
+                "operationId": "aeaf1054d3f3de9ce34d0044aac62b65",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Олександр"
+                                            },
+                                            "last_name": {
+                                                "type": "string",
+                                                "example": "Сердюк"
+                                            },
+                                            "full_name": {
+                                                "type": "string",
+                                                "example": "Стефанович"
+                                            },
+                                            "client_phone": {
+                                                "type": "string",
+                                                "example": "+380953455678"
+                                            },
+                                            "position": {
+                                                "type": "string",
+                                                "example": "Менеджер"
+                                            },
+                                            "company": {
+                                                "type": "string",
+                                                "example": "АТ 'DFF'"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "example": "Фізична особа"
+                                            },
+                                            "debt_ceiling": {
+                                                "type": "string",
+                                                "example": "4567.78"
+                                            },
+                                            "identification_number": {
+                                                "type": "string",
+                                                "example": "UA793991114209"
+                                            },
+                                            "code_of_the_reason_for_registration": {
+                                                "type": "string",
+                                                "example": "UA4977230"
+                                            },
+                                            "main_state_registration_number": {
+                                                "type": "string",
+                                                "example": "UA468312256126"
+                                            },
+                                            "director_name": {
+                                                "type": "string",
+                                                "example": "Brielle Schuster"
+                                            },
+                                            "contact_person_position": {
+                                                "type": "string",
+                                                "example": "Голова правлiння"
+                                            },
+                                            "acting_on_the_basis_of": {
+                                                "type": "string",
+                                                "example": "Договiр № 86028"
+                                            },
+                                            "registered_address": {
+                                                "type": "string",
+                                                "example": "Харкiв, вул.4"
+                                            },
+                                            "zip_code": {
+                                                "type": "string",
+                                                "example": "61171"
+                                            },
+                                            "postal_address": {
+                                                "type": "string",
+                                                "example": "4367 Харкiв"
+                                            },
+                                            "payment_account": {
+                                                "type": "string",
+                                                "example": "UA827498498555"
+                                            },
+                                            "bank_name": {
+                                                "type": "string",
+                                                "example": "АТ Спец Банк"
+                                            },
+                                            "bank_identification_code": {
+                                                "type": "string",
+                                                "example": "UA308371"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "example": "АТ 'DFF'"
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "example": "Фізична особа"
+                                                },
+                                                "debt_ceiling": {
+                                                    "type": "string",
+                                                    "example": "4567.78"
+                                                },
+                                                "identification_number": {
+                                                    "type": "string",
+                                                    "example": "UA793991114209"
+                                                },
+                                                "code_of_the_reason_for_registration": {
+                                                    "type": "string",
+                                                    "example": "UA4977230"
+                                                },
+                                                "main_state_registration_number": {
+                                                    "type": "string",
+                                                    "example": "UA468312256126"
+                                                },
+                                                "director_name": {
+                                                    "type": "string",
+                                                    "example": "Brielle Schuster"
+                                                },
+                                                "contact_person_position": {
+                                                    "type": "string",
+                                                    "example": "Голова правлiння"
+                                                },
+                                                "acting_on_the_basis_of": {
+                                                    "type": "string",
+                                                    "example": "Договiр № 86028"
+                                                },
+                                                "registered_address": {
+                                                    "type": "string",
+                                                    "example": "Харкiв, вул.4"
+                                                },
+                                                "zip_code": {
+                                                    "type": "string",
+                                                    "example": "61171"
+                                                },
+                                                "postal_address": {
+                                                    "type": "string",
+                                                    "example": "4367 Харкiв"
+                                                },
+                                                "payment_account": {
+                                                    "type": "string",
+                                                    "example": "UA827498498555"
+                                                },
+                                                "bank_name": {
+                                                    "type": "string",
+                                                    "example": "АТ Спец Банк"
+                                                },
+                                                "bank_identification_code": {
+                                                    "type": "string",
+                                                    "example": "UA308371"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/clientBases/{clientBase}": {
+            "get": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Единичная запись",
+                "operationId": "216e9ce5c2c2b35fef88b16bab836f9e",
+                "parameters": [
+                    {
+                        "name": "clientBase",
+                        "in": "path",
+                        "description": "ID лида",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "example": "АТ 'DFF'"
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "example": "Фізична особа"
+                                                },
+                                                "debt_ceiling": {
+                                                    "type": "string",
+                                                    "example": "4567.78"
+                                                },
+                                                "identification_number": {
+                                                    "type": "string",
+                                                    "example": "UA793991114209"
+                                                },
+                                                "code_of_the_reason_for_registration": {
+                                                    "type": "string",
+                                                    "example": "UA4977230"
+                                                },
+                                                "main_state_registration_number": {
+                                                    "type": "string",
+                                                    "example": "UA468312256126"
+                                                },
+                                                "director_name": {
+                                                    "type": "string",
+                                                    "example": "Brielle Schuster"
+                                                },
+                                                "contact_person_position": {
+                                                    "type": "string",
+                                                    "example": "Голова правлiння"
+                                                },
+                                                "acting_on_the_basis_of": {
+                                                    "type": "string",
+                                                    "example": "Договiр № 86028"
+                                                },
+                                                "registered_address": {
+                                                    "type": "string",
+                                                    "example": "Харкiв, вул.4"
+                                                },
+                                                "zip_code": {
+                                                    "type": "integer",
+                                                    "example": 61171
+                                                },
+                                                "postal_address": {
+                                                    "type": "string",
+                                                    "example": "4367 Харкiв"
+                                                },
+                                                "payment_account": {
+                                                    "type": "string",
+                                                    "example": "UA827498498555"
+                                                },
+                                                "bank_name": {
+                                                    "type": "string",
+                                                    "example": "АТ Спец Банк"
+                                                },
+                                                "bank_identification_code": {
+                                                    "type": "string",
+                                                    "example": "UA308371"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Удаление",
+                "operationId": "31f3ea6e6301533448642faf0fe33cf1",
+                "parameters": [
+                    {
+                        "name": "clientBase",
+                        "in": "path",
+                        "description": "ID замовлення",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Обновление",
+                "operationId": "76181aead37419d644d13d0b85b8af69",
+                "parameters": [
+                    {
+                        "name": "clientBase",
+                        "in": "path",
+                        "description": "ID клиента",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "position": {
+                                                "type": "string",
+                                                "example": "Менеджер"
+                                            },
+                                            "company": {
+                                                "type": "string",
+                                                "example": "АТ 'DFF'"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "example": "Фізична особа"
+                                            },
+                                            "debt_ceiling": {
+                                                "type": "string",
+                                                "example": "4567.78"
+                                            },
+                                            "identification_number": {
+                                                "type": "string",
+                                                "example": "UA793991114209"
+                                            },
+                                            "code_of_the_reason_for_registration": {
+                                                "type": "string",
+                                                "example": "UA4977230"
+                                            },
+                                            "main_state_registration_number": {
+                                                "type": "string",
+                                                "example": "UA468312256126"
+                                            },
+                                            "director_name": {
+                                                "type": "string",
+                                                "example": "Brielle Schuster"
+                                            },
+                                            "contact_person_position": {
+                                                "type": "string",
+                                                "example": "Голова правлiння"
+                                            },
+                                            "acting_on_the_basis_of": {
+                                                "type": "string",
+                                                "example": "Договiр № 86028"
+                                            },
+                                            "registered_address": {
+                                                "type": "string",
+                                                "example": "Харкiв, вул.4"
+                                            },
+                                            "zip_code": {
+                                                "type": "string",
+                                                "example": "61171"
+                                            },
+                                            "postal_address": {
+                                                "type": "string",
+                                                "example": "4367 Харкiв"
+                                            },
+                                            "payment_account": {
+                                                "type": "string",
+                                                "example": "UA827498498555"
+                                            },
+                                            "bank_name": {
+                                                "type": "string",
+                                                "example": "АТ Спец Банк"
+                                            },
+                                            "bank_identification_code": {
+                                                "type": "string",
+                                                "example": "UA308371"
+                                            },
+                                            "client_contacts": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "client_base_id": {
+                                                            "type": "string",
+                                                            "example": "30"
+                                                        },
+                                                        "complete_name": {
+                                                            "type": "string",
+                                                            "example": "Олександр Сердюк Стефанович"
+                                                        },
+                                                        "position": {
+                                                            "type": "string",
+                                                            "example": "Менеджер"
+                                                        },
+                                                        "client_phone": {
+                                                            "type": "string",
+                                                            "example": "+380953455678"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "example": "АТ 'DFF'"
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "example": "Фізична особа"
+                                                },
+                                                "debt_ceiling": {
+                                                    "type": "string",
+                                                    "example": "4567.78"
+                                                },
+                                                "identification_number": {
+                                                    "type": "string",
+                                                    "example": "UA793991114209"
+                                                },
+                                                "code_of_the_reason_for_registration": {
+                                                    "type": "string",
+                                                    "example": "UA4977230"
+                                                },
+                                                "main_state_registration_number": {
+                                                    "type": "string",
+                                                    "example": "UA468312256126"
+                                                },
+                                                "director_name": {
+                                                    "type": "string",
+                                                    "example": "Brielle Schuster"
+                                                },
+                                                "contact_person_position": {
+                                                    "type": "string",
+                                                    "example": "Голова правлiння"
+                                                },
+                                                "acting_on_the_basis_of": {
+                                                    "type": "string",
+                                                    "example": "Договiр № 86028"
+                                                },
+                                                "registered_address": {
+                                                    "type": "string",
+                                                    "example": "Харкiв, вул.4"
+                                                },
+                                                "zip_code": {
+                                                    "type": "string",
+                                                    "example": "61171"
+                                                },
+                                                "postal_address": {
+                                                    "type": "string",
+                                                    "example": "4367 Харкiв"
+                                                },
+                                                "payment_account": {
+                                                    "type": "string",
+                                                    "example": "UA827498498555"
+                                                },
+                                                "bank_name": {
+                                                    "type": "string",
+                                                    "example": "АТ Спец Банк"
+                                                },
+                                                "bank_identification_code": {
+                                                    "type": "string",
+                                                    "example": "UA308371"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/clientBases/edit/addComment/{id}": {
+            "post": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Добавить комментарий в историю заказа",
+                "operationId": "6ac1b3d51cb2e9ae935b5d0cbf085035",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID замовлення",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "comment": {
+                                                "type": "string",
+                                                "example": "Тестовый комментарий"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "client_id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "new_value": {
+                                            "type": "integer",
+                                            "example": "Тестовый комментарий"
+                                        },
+                                        "user_id": {
+                                            "type": "integer",
+                                            "example": 4
+                                        },
+                                        "reason": {
+                                            "type": "string",
+                                            "example": "comment"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Произошла ошибка при добавлении файлов."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/leads": {
+            "get": {
+                "tags": [
+                    "Leads"
+                ],
+                "summary": "Список",
+                "operationId": "a343b1c7e5e7371cc2c8e8d3daf86770",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "company": {
+                                                        "type": "string",
+                                                        "example": "Some company"
+                                                    },
+                                                    "fullname": {
+                                                        "type": "string",
+                                                        "example": "Данило Галицький"
+                                                    },
+                                                    "phone": {
+                                                        "type": "string",
+                                                        "example": "+380964545678"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "example@mail.com"
+                                                    },
+                                                    "comment": {
+                                                        "type": "string",
+                                                        "example": "Some comment"
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "новий"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Leads"
+                ],
+                "summary": "Создание",
+                "operationId": "6bbdb9ce33bed941e06daceafdc6b2dd",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "company": {
+                                                "type": "string",
+                                                "example": "Some company"
+                                            },
+                                            "fullname": {
+                                                "type": "string",
+                                                "example": "Данило Галицький"
+                                            },
+                                            "phone": {
+                                                "type": "string",
+                                                "example": "+380964545678"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "example@mail.com"
+                                            },
+                                            "comment": {
+                                                "type": "string",
+                                                "example": "Some comment"
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "example": "новий"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "example": "Some company"
+                                                },
+                                                "fullname": {
+                                                    "type": "string",
+                                                    "example": "Данило Галицький"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+380964545678"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "example@mail.com"
+                                                },
+                                                "comment": {
+                                                    "type": "string",
+                                                    "example": "Some comment"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "новий"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/leads/{lead}": {
+            "get": {
+                "tags": [
+                    "Leads"
+                ],
+                "summary": "Единичная запись",
+                "operationId": "067a8fa82bd6b082e2fe3098dfe1d7e7",
+                "parameters": [
+                    {
+                        "name": "lead",
+                        "in": "path",
+                        "description": "ID лида",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "example": "Some company"
+                                                },
+                                                "fullname": {
+                                                    "type": "string",
+                                                    "example": "Данило Галицький"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+380964545678"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "example@mail.com"
+                                                },
+                                                "comment": {
+                                                    "type": "string",
+                                                    "example": "Some comment"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "новий"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Leads"
+                ],
+                "summary": "Удаление",
+                "operationId": "57b4679aaf55e26380e66e0aed5ab498",
+                "parameters": [
+                    {
+                        "name": "lead",
+                        "in": "path",
+                        "description": "ID лида",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Leads"
+                ],
+                "summary": "Обновление",
+                "operationId": "92d3f2996ffa990d16e4b877681dc356",
+                "parameters": [
+                    {
+                        "name": "lead",
+                        "in": "path",
+                        "description": "ID лида",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "company": {
+                                                "type": "string",
+                                                "example": "Some company"
+                                            },
+                                            "fullname": {
+                                                "type": "string",
+                                                "example": "Данило Галицький"
+                                            },
+                                            "phone": {
+                                                "type": "string",
+                                                "example": "+380964545678"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "example@mail.com"
+                                            },
+                                            "comment": {
+                                                "type": "string",
+                                                "example": "Some comment"
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "example": "новий"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "example": "Some company"
+                                                },
+                                                "fullname": {
+                                                    "type": "string",
+                                                    "example": "Данило Галицький"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+380964545678"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "example@mail.com"
+                                                },
+                                                "comment": {
+                                                    "type": "string",
+                                                    "example": "Some comment"
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "новий"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/orders": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Список",
+                "operationId": "d4530ea61a780e4f5951a594e93c1e69",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "client_id": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "execution_date": {
+                                                        "type": "dateTime",
+                                                        "example": "2024-05-20 03:29:47"
+                                                    },
+                                                    "review": {
+                                                        "type": "text",
+                                                        "example": "Ratione commodi repellendus quibusdam "
+                                                    },
+                                                    "order_source": {
+                                                        "type": "string",
+                                                        "example": "ОЛХ"
+                                                    },
+                                                    "payment_form": {
+                                                        "type": "string",
+                                                        "example": "Юридична особа (безготівковий розрахунок)"
+                                                    },
+                                                    "number_of_workers": {
+                                                        "type": "integer",
+                                                        "example": 11
+                                                    },
+                                                    "city": {
+                                                        "type": "string",
+                                                        "example": "Львів"
+                                                    },
+                                                    "street": {
+                                                        "type": "string",
+                                                        "example": "Вулиця 3"
+                                                    },
+                                                    "house": {
+                                                        "type": "string",
+                                                        "example": "23г"
+                                                    },
+                                                    "service_type": {
+                                                        "type": "string",
+                                                        "example": "Прибирання будівельного сміття"
+                                                    },
+                                                    "task_description": {
+                                                        "type": "text",
+                                                        "example": "Термiнове виконання"
+                                                    },
+                                                    "straps": {
+                                                        "type": "boolean",
+                                                        "example": false
+                                                    },
+                                                    "tools": {
+                                                        "type": "boolean",
+                                                        "example": false
+                                                    },
+                                                    "respirators": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "transport": {
+                                                        "type": "string",
+                                                        "example": "Легкова 1"
+                                                    },
+                                                    "order_hrs": {
+                                                        "type": "decimal",
+                                                        "example": 200.5
+                                                    },
+                                                    "price_to_customer": {
+                                                        "type": "decimal",
+                                                        "example": 200.5
+                                                    },
+                                                    "price_to_workers": {
+                                                        "type": "decimal",
+                                                        "example": 200.5
+                                                    },
+                                                    "min_order_amount": {
+                                                        "type": "decimal",
+                                                        "example": 200.5
+                                                    },
+                                                    "min_order_hrs": {
+                                                        "type": "decimal",
+                                                        "example": 200.5
+                                                    },
+                                                    "total_price": {
+                                                        "type": "decimal",
+                                                        "example": 200.5
+                                                    },
+                                                    "payment_note": {
+                                                        "type": "string",
+                                                        "example": "Предоплату внесено"
+                                                    },
+                                                    "user_manager_id": {
+                                                        "type": "integer",
+                                                        "example": 4
+                                                    },
+                                                    "user_logist_id": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "user_brigadier_id": {
+                                                        "type": "integer",
+                                                        "example": 6
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "Попереднє замовлення"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Создание",
+                "operationId": "e1c8c4dbcb1f60187195df4791c9e8ed",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "client": {
+                                                "type": "integer",
+                                                "example": 3
+                                            },
+                                            "execution_date_date": {
+                                                "type": "dateTime",
+                                                "example": "2024-05-20"
+                                            },
+                                            "execution_date_time": {
+                                                "type": "dateTime",
+                                                "example": "03:29:47"
+                                            },
+                                            "review": {
+                                                "type": "text",
+                                                "example": "Ratione commodi repellendus quibusdam "
+                                            },
+                                            "order_source": {
+                                                "type": "string",
+                                                "example": "ОЛХ"
+                                            },
+                                            "payment_form": {
+                                                "type": "string",
+                                                "example": "Юридична особа (безготівковий розрахунок)"
+                                            },
+                                            "number_of_workers": {
+                                                "type": "integer",
+                                                "example": 11
+                                            },
+                                            "city": {
+                                                "type": "string",
+                                                "example": "Львів"
+                                            },
+                                            "street": {
+                                                "type": "string",
+                                                "example": "Вулиця 3"
+                                            },
+                                            "house": {
+                                                "type": "string",
+                                                "example": "23г"
+                                            },
+                                            "service_type": {
+                                                "type": "string",
+                                                "example": "Прибирання будівельного сміття"
+                                            },
+                                            "task_description": {
+                                                "type": "text",
+                                                "example": "Термiнове виконання"
+                                            },
+                                            "straps": {
+                                                "type": "boolean",
+                                                "example": false
+                                            },
+                                            "tools": {
+                                                "type": "boolean",
+                                                "example": false
+                                            },
+                                            "respirators": {
+                                                "type": "boolean",
+                                                "example": true
+                                            },
+                                            "transport": {
+                                                "type": "string",
+                                                "example": "Легкова 1"
+                                            },
+                                            "order_hrs": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "price_to_customer": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "price_to_workers": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "min_order_amount": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "min_order_hrs": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "total_price": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "payment_note": {
+                                                "type": "string",
+                                                "example": "Предоплату внесено"
+                                            },
+                                            "user_manager_id": {
+                                                "type": "integer",
+                                                "example": 4
+                                            },
+                                            "user_logist_id": {
+                                                "type": "integer",
+                                                "example": 5
+                                            },
+                                            "user_brigadier_id": {
+                                                "type": "integer",
+                                                "example": 6
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "example": "Попереднє замовлення"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "client_id": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "execution_date": {
+                                                    "type": "dateTime",
+                                                    "example": "2024-05-20 03:29:47"
+                                                },
+                                                "review": {
+                                                    "type": "text",
+                                                    "example": "Ratione commodi repellendus quibusdam "
+                                                },
+                                                "order_source": {
+                                                    "type": "string",
+                                                    "example": "ОЛХ"
+                                                },
+                                                "payment_form": {
+                                                    "type": "string",
+                                                    "example": "Юридична особа (безготівковий розрахунок)"
+                                                },
+                                                "number_of_workers": {
+                                                    "type": "integer",
+                                                    "example": 11
+                                                },
+                                                "city": {
+                                                    "type": "string",
+                                                    "example": "Львів"
+                                                },
+                                                "street": {
+                                                    "type": "string",
+                                                    "example": "Вулиця 3"
+                                                },
+                                                "house": {
+                                                    "type": "string",
+                                                    "example": "23г"
+                                                },
+                                                "service_type": {
+                                                    "type": "string",
+                                                    "example": "Прибирання будівельного сміття"
+                                                },
+                                                "task_description": {
+                                                    "type": "text",
+                                                    "example": "Термiнове виконання"
+                                                },
+                                                "straps": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "tools": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "respirators": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "transport": {
+                                                    "type": "string",
+                                                    "example": "Легкова 1"
+                                                },
+                                                "order_hrs": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "price_to_customer": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "price_to_workers": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "min_order_amount": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "min_order_hrs": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "total_price": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "payment_note": {
+                                                    "type": "string",
+                                                    "example": "Предоплату внесено"
+                                                },
+                                                "user_manager_id": {
+                                                    "type": "integer",
+                                                    "example": 4
+                                                },
+                                                "user_logist_id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "user_brigadier_id": {
+                                                    "type": "integer",
+                                                    "example": 6
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "Попереднє замовлення"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/orders/{order}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Единичная запись",
+                "operationId": "b3bb39fece88584522cbb6625ced1699",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "description": "ID лида",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "client_id": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "execution_date": {
+                                                    "type": "dateTime",
+                                                    "example": "2024-05-20 03:29:47"
+                                                },
+                                                "review": {
+                                                    "type": "text",
+                                                    "example": "Ratione commodi repellendus quibusdam "
+                                                },
+                                                "order_source": {
+                                                    "type": "string",
+                                                    "example": "ОЛХ"
+                                                },
+                                                "payment_form": {
+                                                    "type": "string",
+                                                    "example": "Юридична особа (безготівковий розрахунок)"
+                                                },
+                                                "number_of_workers": {
+                                                    "type": "integer",
+                                                    "example": 11
+                                                },
+                                                "city": {
+                                                    "type": "string",
+                                                    "example": "Львів"
+                                                },
+                                                "street": {
+                                                    "type": "string",
+                                                    "example": "Вулиця 3"
+                                                },
+                                                "house": {
+                                                    "type": "string",
+                                                    "example": "23г"
+                                                },
+                                                "service_type": {
+                                                    "type": "string",
+                                                    "example": "Прибирання будівельного сміття"
+                                                },
+                                                "task_description": {
+                                                    "type": "text",
+                                                    "example": "Термiнове виконання"
+                                                },
+                                                "straps": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "tools": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "respirators": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "transport": {
+                                                    "type": "string",
+                                                    "example": "Легкова 1"
+                                                },
+                                                "order_hrs": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "price_to_customer": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "price_to_workers": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "min_order_amount": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "min_order_hrs": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "total_price": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "payment_note": {
+                                                    "type": "string",
+                                                    "example": "Предоплату внесено"
+                                                },
+                                                "user_manager_id": {
+                                                    "type": "integer",
+                                                    "example": 4
+                                                },
+                                                "user_logist_id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "user_brigadier_id": {
+                                                    "type": "integer",
+                                                    "example": 6
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "Попереднє замовлення"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Удаление",
+                "operationId": "da3af50e368f6e976113f2c1c24a9472",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "description": "ID замовлення",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Обновление",
+                "operationId": "cb256aeb26daf970c9dde71e94033202",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "description": "ID замовлення",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "execution_date": {
+                                                "type": "dateTime",
+                                                "example": "2024-05-20 03:29:47"
+                                            },
+                                            "review": {
+                                                "type": "text",
+                                                "example": "Ratione commodi repellendus quibusdam "
+                                            },
+                                            "order_source": {
+                                                "type": "string",
+                                                "example": "ОЛХ"
+                                            },
+                                            "payment_form": {
+                                                "type": "string",
+                                                "example": "Юридична особа (безготівковий розрахунок)"
+                                            },
+                                            "number_of_workers": {
+                                                "type": "integer",
+                                                "example": 11
+                                            },
+                                            "city": {
+                                                "type": "string",
+                                                "example": "Львів"
+                                            },
+                                            "street": {
+                                                "type": "string",
+                                                "example": "Вулиця 3"
+                                            },
+                                            "house": {
+                                                "type": "string",
+                                                "example": "23г"
+                                            },
+                                            "service_type": {
+                                                "type": "string",
+                                                "example": "Прибирання будівельного сміття"
+                                            },
+                                            "task_description": {
+                                                "type": "text",
+                                                "example": "Термiнове виконання"
+                                            },
+                                            "straps": {
+                                                "type": "boolean",
+                                                "example": false
+                                            },
+                                            "tools": {
+                                                "type": "boolean",
+                                                "example": false
+                                            },
+                                            "respirators": {
+                                                "type": "boolean",
+                                                "example": true
+                                            },
+                                            "transport": {
+                                                "type": "string",
+                                                "example": "Легкова 1"
+                                            },
+                                            "order_hrs": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "price_to_customer": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "price_to_workers": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "min_order_amount": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "min_order_hrs": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "total_price": {
+                                                "type": "decimal",
+                                                "example": 200.5
+                                            },
+                                            "payment_note": {
+                                                "type": "string",
+                                                "example": "Предоплату внесено"
+                                            },
+                                            "user_manager_id": {
+                                                "type": "integer",
+                                                "example": 4
+                                            },
+                                            "user_logist_id": {
+                                                "type": "integer",
+                                                "example": 5
+                                            },
+                                            "user_brigadier_id": {
+                                                "type": "integer",
+                                                "example": 6
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "example": "Попереднє замовлення"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "client_id": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "execution_date": {
+                                                    "type": "dateTime",
+                                                    "example": "2024-05-20 03:29:47"
+                                                },
+                                                "review": {
+                                                    "type": "text",
+                                                    "example": "Ratione commodi repellendus quibusdam "
+                                                },
+                                                "order_source": {
+                                                    "type": "string",
+                                                    "example": "ОЛХ"
+                                                },
+                                                "payment_form": {
+                                                    "type": "string",
+                                                    "example": "Юридична особа (безготівковий розрахунок)"
+                                                },
+                                                "number_of_workers": {
+                                                    "type": "integer",
+                                                    "example": 11
+                                                },
+                                                "city": {
+                                                    "type": "string",
+                                                    "example": "Львів"
+                                                },
+                                                "street": {
+                                                    "type": "string",
+                                                    "example": "Вулиця 3"
+                                                },
+                                                "house": {
+                                                    "type": "string",
+                                                    "example": "23г"
+                                                },
+                                                "service_type": {
+                                                    "type": "string",
+                                                    "example": "Прибирання будівельного сміття"
+                                                },
+                                                "task_description": {
+                                                    "type": "text",
+                                                    "example": "Термiнове виконання"
+                                                },
+                                                "straps": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "tools": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "respirators": {
+                                                    "type": "boolean",
+                                                    "example": true
+                                                },
+                                                "transport": {
+                                                    "type": "string",
+                                                    "example": "Легкова 1"
+                                                },
+                                                "order_hrs": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "price_to_customer": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "price_to_workers": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "min_order_amount": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "min_order_hrs": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "total_price": {
+                                                    "type": "decimal",
+                                                    "example": 200.5
+                                                },
+                                                "payment_note": {
+                                                    "type": "string",
+                                                    "example": "Предоплату внесено"
+                                                },
+                                                "user_manager_id": {
+                                                    "type": "integer",
+                                                    "example": 4
+                                                },
+                                                "user_logist_id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "user_brigadier_id": {
+                                                    "type": "integer",
+                                                    "example": 6
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "Попереднє замовлення"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/orders/edit/addFiles/{id}": {
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Добавить файлы к заказу",
+                "operationId": "ecb5ec7088ab6703b8e8d76cbfea45cc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID заказа",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "description": "Файлы, которые нужно добавить",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "deed_file"
+                                ],
+                                "properties": {
+                                    "deed_file": {
+                                        "type": "file",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Файлы успешно добавлены."
+                                        },
+                                        "order_id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "client_id": {
+                                            "type": "integer",
+                                            "example": 2
+                                        },
+                                        "path": {
+                                            "type": "string",
+                                            "example": "/path/files"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Договiр"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "Завантажено"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Произошла ошибка при добавлении файлов."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    }
+}

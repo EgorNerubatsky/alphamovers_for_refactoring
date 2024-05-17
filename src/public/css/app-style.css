@@ -1,0 +1,171 @@
+
+a {
+    color: black; /* Цвет текста для светлой темы (по умолчанию) */
+}
+
+body.dark-mode a {
+    color: white; /* Цвет текста для темной темы */
+}
+
+ body {
+     background-color: #DCDCDC;
+ }
+
+
+
+.badge:hover img {
+    transform: scale(1.2); /* Увеличьте масштаб изображения, например, до 1.2 раза */
+    transition: transform 0.3s ease; /* Добавьте плавное переходное анимационное свойство */
+}
+
+
+/* Начальные размеры картинки */
+
+
+.nav-item img {
+    width: 30px;
+    height: auto; /* Позволяет автоматически подстроить высоту картинки */
+    transition: transform 0.3s; /* Добавляем плавный переход при изменении размера */
+}
+
+/* Картинка увеличивается при наведении */
+.nav-item a:hover img {
+    transform: scale(1.2); /* Увеличиваем размер картинки на 20% (можете изменить значение на свой вкус) */
+}
+
+
+.modal-content-my {
+background-color: #fefefe;
+margin: 15% auto;
+padding: 20px;
+width: 400px;
+height: auto;
+border: 1px solid #888;
+border-radius: 20px;
+font-family: Arial, sans-serif;
+max-width: 50%;
+color: #444;
+position: absolute;
+top: -20%; /* Поднимает модальное окно к верхнему краю */
+left: 50%;
+transform: translateX(-50%);
+/* Добавьте другие стили по необходимости */
+}
+
+
+#editModal
+  {
+    /* Ширина всей зоны затемнения, она должна быть на всю видимую область */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    /* Остальные стили по мере необходимости */
+}
+
+
+
+.form-content {
+    display: none;
+}
+
+.form-content.active {
+    display: block;
+}
+
+.sidebar-hidden {
+  display: none;
+}
+
+.content-expanded {
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+.sidebar {
+  background-color: #A9A9A9;
+  /* Remove or comment out the width: 200px; */
+}
+
+.content-wrapper {
+  /* Add the following properties */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.content-expanded {
+  /* Add the following properties */
+  flex: 1;
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+
+/* Custom CSS for the checkboxes */
+.custom-checkbox {
+    width: 20px; /* Adjust the width as per your preference */
+    height: 20px; /* Adjust the height as per your preference */
+    margin-right: 5px; /* Adjust the spacing between the checkbox and the label */
+}
+
+.custom-active {
+background-color: #def0f0; /* Set the desired background color */
+color: white; /* Optionally, set the text color to improve visibility */
+}
+.custom-active:hover{
+    background-color: #def0f0;
+}
+
+@media (max-width: 1424px) {
+  /* Устанавливаем размер шрифта 12px при маленьком разрешении экрана */
+  .small-font {
+      font-size: 12px;
+  }
+}
+
+
+#modalEdit {
+  /* Ширина всей зоны затемнения, она должна быть на всю видимую область */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* Остальные стили по мере необходимости */
+}
+
+/*#myModal {*/
+/*  !* Ширина всей зоны затемнения, она должна быть на всю видимую область *!*/
+/*  width: 100%;*/
+/*  position: fixed;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  background-color: rgba(0, 0, 0, 0.5);*/
+/*  !* opacity: 0;*/
+/*  pointer-events: none;*/
+/*  transition: opacity 0.3s ease; *!*/
+/*  !* Остальные стили по мере необходимости *!*/
+/*}*/
+
+.event-info {
+  text-align: left;
+}
+
+.modal-content-my {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+
+
+
+
+.card-header {
+  border-top-left-radius: 10px; /* Adjust the value for the desired roundness */
+  border-top-right-radius: 10px; /* Adjust the value for the desired roundness */
+}
